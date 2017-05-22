@@ -13,3 +13,17 @@ Collection of scripts to make aws easier to use.
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
+Windows Dependencies
+===
+grep
+http://gnuwin32.sourceforge.net/packages/grep.htm
+
+sed
+http://gnuwin32.sourceforge.net/packages/sed.htm
+
+JQ 
+https://stedolan.github.io/jq/download/
+
+Linux Dependencies
+===
+JQ https://stedolan.github.io/jq/download/
