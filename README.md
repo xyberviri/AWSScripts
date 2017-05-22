@@ -1,5 +1,6 @@
 # AWSScripts
 Collection of scripts to make aws easier to use.
+
     Copyright (C) 2017 Xyberviri
 
     This program is free software: you can redistribute it and/or modify
@@ -11,3 +12,4 @@ Collection of scripts to make aws easier to use.
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
+
