@@ -28,10 +28,11 @@ IF %ERRORLEVEL% NEQ 0 (
 	ECHO ERROR %ERRORLEVEL%
 	ECHO Try again [Y/N]?
 	set /p var_PromptTryAgain=:
-	if /i ["%var_PromptTryAgain%"] == ["Y"] ( GOTO awsPromptForCredentials )
+	if /i ["%var_PromptTryAgain%"] == ["y"] ( GOTO awsPromptForCredentials )
 	GOTO EoF
 )
 	PUSHD %temp%
+	TYPE %var_loginProfile%.session
 		FOR /F "tokens=* USEBACKQ" %%F IN (`jq -r ".Credentials.AccessKeyId" %var_loginProfile%.session`) DO (
 			aws configure --profile %var_loginProfile% set aws_access_key_id %%F
 		)
@@ -46,4 +47,5 @@ IF %ERRORLEVEL% NEQ 0 (
 ECHO. Success, you are now authenticated until your session token expires.
 
 :Eof
+PAUSE
 EXIT /B %ERRORLEVEL%
