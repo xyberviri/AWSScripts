@@ -1,5 +1,5 @@
-# AWSScripts
-Collection of scripts to make aws easier to use.
+# Scripts N Stuff
+Collection of scripts to make an administrators life easier.
 
     Copyright (C) 2017 Xyberviri
 
