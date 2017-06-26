@@ -5,15 +5,11 @@ if [ -z $1 ]; then
 exit 0
 fi
 
-#echo "${1##*/}"
-
-
 if [ -z $2 ]; then
     outFilePrefix="$(echo $1 | sed 's=.*/==;s/.iso//I')"
 else
     outFilePrefix=$2
 fi
-
 
 if [ -z $3 ]; then
     outTitleOffset=1
@@ -21,12 +17,11 @@ else
     outTitleOffset=$3
 fi
 
-
 rawout=$(HandBrakeCLI --min-duration 0 -i $1 -t 0 2>&1 >/dev/null)
 count=$(echo $rawout | grep -Eao "\\+ title [0-9]+:" | wc -l)
 
-echo $count
 echo $rawout | grep -Eao "\\+ duration: [0-9]+:[0-9]+:[0-9]+"
+echo $count
 
 for i in $(seq $count)
 do
