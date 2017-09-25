@@ -49,3 +49,4 @@ ECHO. Success, you are now authenticated until your session token expires.
 :Eof
 PAUSE
 EXIT /B %ERRORLEVEL%
+EXIT /B %ERRORLEVEL%
