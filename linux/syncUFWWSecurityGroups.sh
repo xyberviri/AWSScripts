@@ -4,10 +4,10 @@ afDelim=RULE:
 awsRegion=us-west-1
 
 declare -A vpcSubNets
-vpcSubNets["vpc-01234567"]="172.0.0.0/16"
-vpcSubNets["vpc-12345678"]="192.168.8.0/22"
-vpcSubNets["vpc-23456789"]="192.168.4.0/22"
-vpcSubNets["vpc-34567890"]="192.168.0.0/22"
+vpcSubNets["vpc-01234567"]="192.168.1.0/24"
+vpcSubNets["vpc-12345678"]="192.168.2.0/24"
+vpcSubNets["vpc-23456789"]="192.168.3.0/24"
+vpcSubNets["vpc-34567890"]="192.168.4.0/24"
 
 #Grab a list of the security groups for this instance via our own meta data
 function getSGList {
