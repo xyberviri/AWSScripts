@@ -3,6 +3,9 @@
 #    This program comes with ABSOLUTELY NO WARRANTY;
 #    This is free software, and you are welcome to redistribute it under certain conditions;
 #    GNU GPLv3
+# the purpose of this script is to syncronize the local iptables with AWS security groups. 
+# It is intended to NOT be used with iptables persist, rules should be dumped on restart and then polled again from aws to allow for security changes. 
+# this is intended to be ran as crontab on restart. 
 
 
 afDelim=RULE:
