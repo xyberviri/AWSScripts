@@ -13,9 +13,7 @@ $tag = [Amazon.EC2.Model.Tag]::new("Orphaned","True")
 $AllObjects = @()
 $count=0
 foreach($volume in $volsnaps) {
-
     $AllObjects += [pscustomobject]@{
-        #Count = $count
         ImageId = ( $images | Where-Object {$_.BlockDeviceMappings.Ebs.SnapshotId -eq $volume.SnapshotId} ).ImageId
         InstanceId = $volume.Attachments.InstanceId
         SnapshotId = $volume.SnapshotId
@@ -25,17 +23,16 @@ foreach($volume in $volsnaps) {
         State = $volume.State
         Encrypted = $volume.Encrypted
         Created = $volume.CreateTime
-
     }
     $count++
 }
 
-$AllObjects | Export-Csv -Path "$region-ec2volume-report.csv" -NoTypeInformation
-$snapshotsWithImages |Select-Object -Property SnapshotId,Description,StartTime,VolumeId,VolumeSize,Encrypted | export-csv -Path "$region-images.csv" -NoTypeInformation
+$AllObjects |Export-Csv -Path "$region-ec2volume-report.csv" -NoTypeInformation
+$snapshotsWithImages |Select-Object -Property SnapshotId,Description,StartTime,VolumeId,VolumeSize,Encrypted |export-csv -Path "$region-images.csv" -NoTypeInformation
 
 foreach($orphan in ($snapshotsWithoutImages | ? {$_.Tag.Key -notcontains "Orphaned"})){
-write-host "Tagging" $region $orphan.SnapshotId
-New-EC2Tag -Resource $orphan.SnapshotId -Tag $tag  -Region $region -ProfileName $awsProfile -ErrorAction SilentlyContinue
+write-host "Tagging" $orphan.SnapshotId
+New-EC2Tag -Resource $orphan.SnapshotId -Tag $tag -Region $region -ProfileName $awsProfile -ErrorAction SilentlyContinue
 }
 
 }
