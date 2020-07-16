@@ -24,8 +24,9 @@
             
        For tagging you need
               ec2:CreateTag    
-              
-   Tips are appreciated paypal.me/xyberviri
+   
+   Buy me a coffee ko-fi.com/xyberviri
+   or a tip paypal.me/xyberviri
     #>
 function Get-AWSVolumeReport
 {
