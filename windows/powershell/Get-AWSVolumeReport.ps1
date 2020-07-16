@@ -94,3 +94,6 @@ function Get-AWSVolumeReport
     write-host ($snapshotsWithoutImages | ? {$_.Tag.Key -notcontains "Orphaned" -or ($_.Tag.Key -contains "Orphaned" -and $_.Tag.Value -ne "True")}).count "orphaned snapshots"
     write-host "done with" $region "`r`n"
 }
+
+#want to run this as a script just add the regions and profiles at the bottom  and call this as a schedule task. 
+#Get-AWSVolumeReport -region "us-east-1" -awsprofile "prod"
