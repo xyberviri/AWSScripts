@@ -112,7 +112,7 @@ sudo ufw status | grep -qw active;echo $?
 ###############################################################################
 # Main ()                                                                     #
 ###############################################################################
-echo "awsSGIPTSync running..."
+echo "awsSGUFWSync running..."
 echo $(date +"%D:%T")
 
 if [ "$(dpkg-query -l jq;echo $?)" -eq 1 ]; then
